@@ -1,7 +1,6 @@
 
 from flask import render_template,redirect,session,request, flash
 from flask_app import app
-from tkinter import messagebox
 from flask_app.models.user import User
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
@@ -22,7 +21,6 @@ def register():
     }
     id = User.save(data)
     session['user_id'] = id
-    # messagebox.showinfo("Title", "a Tk MessageBox")
     return redirect("/submited")
 
 @app.route('/login',methods=['POST'])
