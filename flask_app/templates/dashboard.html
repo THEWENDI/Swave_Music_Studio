@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<title>SW STUDIO</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+/* body,h1,h5 {font-family: "Raleway", sans-serif} */
+body, html {height: 100%}
+.bgimg {
+    /* background-image: url('/Users/wendili/Desktop/Coding-Dojo/PYTHON/sw_project/swave_background.png'); */
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+#myVideo {  
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+</style>
+<body>
+    <video autoplay muted loop id="myVideo">
+        <source src="{{url_for('static', filename='newvideo.mp4')}}" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <div class="bgimg w3-display-container w3-text-white">
+        <div class="w3-display-middle w3-jumbo">
+            <p>'S WAVE</p>
+        </div>
+        <div class="w3-display-topleft w3-container w3-xlarge">
+            <p><button onclick="document.getElementById('artists').style.display='block'" class="w3-button w3-black">ARTISTS</button></p>
+            <p><button onclick="document.getElementById('releases').style.display='block'" class="w3-button w3-black">RELEASES</button></p>
+            <p><button onclick="document.getElementById('contact').style.display='block'" class="w3-button w3-black">CONTACT</button></p>
+        </div>
+        <div class="w3-display-bottomleft w3-container">
+            <p class="w3-xlarge">DON'T JUST SLEEP, LET'S DREAM</p>
+            <p class="w3-large">WE ARE 'S WAVE,EVERYONE'S WAVE</p>
+            <p>POWERED BY SW STUDIO</p>
+        </div>
+    </div>
+
+    <!-- artists Modal -->
+    <div id="artists" class="w3-modal">
+        <div class="w3-modal-content w3-animate-zoom">
+            <div class="w3-container w3-black w3-display-container">
+                <span onclick="document.getElementById('artists').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
+                <h1>'S WAVE</h1>
+            </div>
+            <div class="w3-container" id="about">
+                <div class="w3-content" style="max-width:700px">
+                    <img src="{{url_for('static', filename='IMG_89662.JPG')}}" style="width:100%;max-width:1000px" class="w3-margin-top">
+                    <p><strong>BAND MEMBERS:</strong> WENDI LI,RICHCAR,ALEX YUAN </p>
+                    <p><strong>GENRE:</strong> MODERN ROCK, PUNK</p>
+                    <p><strong>LINKS:</strong> <a href="https://linktr.ee/everyoneswave">'S WAVE</a></p>
+                    <iframe src="https://open.spotify.com/embed/artist/052kaI21wIMuhLWzwhb0Yu?utm_source=generator&theme=0" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                    <div><br><br></div>
+                </div>
+            </div>
+            <div class="w3-container w3-black">
+                <h1>THE WENDI</h1>
+            </div>
+            <div class="w3-container" id="about">
+                <div class="w3-content" style="max-width:700px">
+                    <img src="{{url_for('static', filename='THEWENDI.JPG')}}" style="width:100%;max-width:1000px" class="w3-margin-top">
+                    <p><strong>GENRE:</strong> R&B</p>
+                    <p><strong>LINKS:</strong> <a href="https://linktr.ee/THEWENDI">THE WENDI</a></p>
+                    <iframe src="https://open.spotify.com/embed/artist/0bH6yW56uEzDW5Sx0k0SvN?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                    <div><br><br></div>
+                </div>
+            </div>
+            <div class="w3-container w3-black">
+                <h1>WENNESSY</h1>
+            </div>
+            <div class="w3-container" id="about">
+                <div class="w3-content" style="max-width:700px">
+                    <img src="{{url_for('static', filename='1.jpeg')}}" style="width:100%;max-width:1000px" class="w3-margin-top">
+                    <p><strong>GENRE:</strong> HIP HOP</p>
+                    <p><strong>LINKS:</strong> <a href="https://linktr.ee/dolce_wennessy">WENNESSY</a></p>
+                    <iframe src="https://open.spotify.com/embed/artist/0M6mfJnuz5QQaYNpmZJ2eQ?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                    <div><br><br></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="releases" class="w3-modal">
+        <div class="w3-modal-content w3-animate-zoom">
+            <div class="w3-container w3-black w3-display-container">
+                <span onclick="document.getElementById('releases').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
+                <h1>'S WAVE PUNK LIVE - 'S WAVE</h1>
+            </div>
+            <div class="w3-container" id="about">
+                <div class="w3-content" style="max-width:700px">
+                    <img src="{{url_for('static', filename='SWAVE_VINYL.jpg')}}" style="width:100%;max-width:1000px" class="w3-margin-top">
+                    <p><strong>'S WAVE PUNK LIVE</strong></p>
+                    <iframe src="https://open.spotify.com/embed/album/2acufhI3c9E22aM2qx8sTb?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                    <p><strong>'S WAVE LIVE VIDEO</strong></p>
+                    <iframe width="100%" height="400" src="https://www.youtube.com/embed/7tV5RNxmtGc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                    <div><br><br></div>
+                </div>
+            </div>
+            <div class="w3-container w3-black">
+                <h1> WHAT IF I - THE WENDI</h1>
+            </div>
+            <div class="w3-container" id="about">
+                <div class="w3-content" style="max-width:700px">
+                    <img src="{{url_for('static', filename='VINYL.jpg')}}" style="width:100%;max-width:1000px" class="w3-margin-top">
+                    <p><strong>WHAT IF I</strong></p>
+                    <iframe src="https://open.spotify.com/embed/track/3IZY1yfd4rb7neHsLSKMmH?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                    <p><strong>WHAT IF I MUSIC VIDEO</strong></p>
+                    <iframe width="100%" height="400" src="https://www.youtube.com/embed/F6s72h7j0cc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div><br><br></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact Modal -->
+    <div id="contact" class="w3-modal">
+        <div class="w3-modal-content w3-animate-zoom">
+            <div class="w3-container w3-black">
+                <span onclick="document.getElementById('contact').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
+                <h1>Contact</h1>
+            </div>
+            <div class="w3-container">
+                <p>Music collaborate, Music production or just send us a message:</p>
+                <form action="/contact" method="post" target="_blank" >
+                <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" name="name"></p>
+                <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" name="email"></p>
+                <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message" name="message"></p>
+                <p><button class="w3-button" type="submit" >SEND MESSAGE</button></p>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+
+</body>
+</html>
