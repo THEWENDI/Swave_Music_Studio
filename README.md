@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-# sw_project
 
 1. Make sure that all your code is merged to the Main branch
 2. Include all files necessary to run your app, NOT just the source code
@@ -16,7 +14,7 @@ pipenv shell
 python server.py
 ```
 
-The app should be running on `http://localhost:5001/`
+<p>The app should be running on `http://localhost:5001/`</p>
 =======
 # 'S WAVE Music Studio
 <br>
@@ -35,4 +33,4 @@ Designed database in MySQL for lightweight storage of collaboration requests and
 ![ Dashboard](https://github.com/THEWENDI/Swave_Music_Studio/blob/2024e69c956a8e3f026a4913a0922c8c5de9e93e/swave_studio.png)
 
 
->>>>>>> cccdaf7a6591a312d12ec4b6599cebfc680e2bc2
+
