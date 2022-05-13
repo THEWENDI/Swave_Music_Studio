@@ -23,6 +23,17 @@ class User:
         return connectToMySQL(cls.db).query_db(query,data)
 
     @classmethod
+    def update(cls, data):
+        query = "UPDATE users SET name=%(name)s, email=%(email)s, message=%(message)s,updated_at=NOW() WHERE id = %(id)s;"
+        return connectToMySQL(cls.db).query_db(query,data)
+        
+    
+    @classmethod
+    def destroy(cls,data):
+        query = "DELETE FROM users WHERE id = %(id)s;"
+        return connectToMySQL(cls.db).query_db(query,data)
+
+    @classmethod
     def get_all(cls):
         query = "SELECT * FROM users;"
         results = connectToMySQL(cls.db).query_db(query)
@@ -60,14 +71,3 @@ class User:
             is_valid= False
         return is_valid
 
-    @staticmethod
-    def validate_login(formdata):
-        is_valid = True
-        user = User.get_by_email(formdata)
-        if not user:
-            flash("Invalid Login","login")
-            is_valid= False
-        elif not bcrypt.check_password_hash(user.password,formdata['password']):
-            flash("Invalid Login","login")
-            is_valid= False
-        return is_valid

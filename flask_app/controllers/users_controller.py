@@ -10,7 +10,7 @@ def index():
     return render_template('dashboard.html')
 
 @app.route('/contact',methods=['POST'])
-def register():
+def contact():
 
     if not User.validate_contact(request.form):
         return redirect("/error")
@@ -23,14 +23,34 @@ def register():
     session['user_id'] = id
     return redirect("/submited")
 
-@app.route('/login',methods=['POST'])
-def login():
-    if not User.validate_login(request.form):
-        return redirect('/')
-    user = User.get_by_email(request.form)
-    session['user_id'] = user.id
-    # ['user_id'] user_id just a var you make , make sure to use the same var name 
-    return redirect('/dashboard')
+@app.route('/edit/<int:id>')
+def edit_contact(id):
+    data = {
+        "id":id
+    }
+    return render_template("edit.html",edit=User.get_by_id(data))
+
+@app.route('/update/contact',methods=['POST'])
+def update_contact():
+    if not User.validate_contact(request.form):
+        return redirect(f"/edit/{request.form['id']}")
+    data = {
+        "name": request.form['name'],
+        "email": request.form['email'],
+        "message": request.form['message'],
+        "id": request.form['id']
+        # make sure to add the id for update
+    }
+    User.update(data)
+    return redirect('/submited')
+
+@app.route('/destroy/<int:id>')
+def destroy_contact(id):
+    data = {
+        "id":id
+    }
+    User.destroy(data)
+    return redirect('/')
 
 @app.route('/submited')
 def dashboard():
@@ -38,7 +58,6 @@ def dashboard():
         return redirect('/logout')
     data ={
         'id':session['user_id']
-        # ['user_id'] user_id just a var you make , make sure to use the same var name 
     }
     return render_template("submited.html",user=User.get_by_id(data))
 
@@ -53,7 +72,6 @@ def show_contact(id):
     #     return redirect('/logout')
     data ={
         'id':session['user_id']
-        # ['user_id'] user_id just a var you make , make sure to use the same var name 
     }
     return render_template("submited.html",user=User.get_by_id(data))
 

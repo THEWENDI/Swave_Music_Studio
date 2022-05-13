@@ -1,34 +1,50 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>submited</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
-.w3-sidebar a {font-family: "Roboto", sans-serif}
-body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
+    .w3-sidebar a {
+        font-family: "Roboto", sans-serif
+    }
+
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .w3-wide {
+        font-family: "Montserrat", sans-serif;
+    }
 </style>
+
 <body class="w3-content" style="max-width:1200px">
 
     <!-- Subscribe section -->
     <div class="w3-container w3-black w3-padding-32">
         <h1>THANK YOU</h1>
         {% with messages = get_flashed_messages(category_filter=['register']) %}
-                    {% if messages %}
-                    <div class="alert alert-danger" role="alert">
-                        <strong>ERROR</strong>
-                            {% for message in messages %}
-                            <p>{{message}}</p>
-                            {% endfor %}
-                    </div>
-                    {% endif %}
-                {% endwith %}
+        {% if messages %}
+        <div class="alert alert-danger" role="alert">
+            <strong>ERROR</strong>
+            {% for message in messages %}
+            <p>{{message}}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
         <p><strong>Name:</strong>{{user.name}}</p>
         <p><strong>Email:</strong>{{user.email}}</p>
         <p><strong>Message:</strong>{{user.message}}</p>
         <a href="/" class="w3-button w3-red w3-margin-bottom">HOME</a>
+        <a href="/edit/{{user.id}}" class="w3-button w3-red w3-margin-bottom">EDIT</a>
+        <a href="/destroy/{{user.id}}" class="w3-button w3-red w3-margin-bottom">DELETE</a>
     </div>
 
 
 </body>
+
 </html>

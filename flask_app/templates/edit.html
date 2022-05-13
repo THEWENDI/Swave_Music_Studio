@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .w3-sidebar a {
+            font-family: "Roboto", sans-serif
+        }
+
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .w3-wide {
+            font-family: "Montserrat", sans-serif;
+        }
+    </style>
+
+<body class="w3-content" style="max-width:1200px">
+
+    <div class="w3-container w3-black w3-padding-32">
+        <h1>Please Resubmit </h1>
+        {% with messages = get_flashed_messages(category_filter=['register']) %}
+        {% if messages %}
+        <div class="alert alert-danger" role="alert">
+            <strong>ERROR</strong>
+            {% for message in messages %}
+            <p>{{message}}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+        <div class="w3-container">
+
+            <p>Music collaborate, Music production or just send us a message:</p>
+            <form action="/update/contact" method="post" target="_blank">
+                <input type="hidden" name="id" value={{edit.id}}>
+                <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" name="name"
+                        value="{{edit.name}}"></p>
+                <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" name="email"
+                        value="{{edit.email}}"></p>
+                <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message" name="message"
+                        value="{{edit.message}}"></p>
+                <p><button class="w3-button w3-red w3-margin-bottom" type="submit">SEND MESSAGE</button></p>
+                <a href="/" class="w3-button w3-red w3-margin-bottom">HOME</a>
+            </form>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
